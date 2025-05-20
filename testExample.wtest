@@ -1,9 +1,39 @@
-import example.pepita
+import example.*
 
 describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  const deportes = new Dependecia(empleados = 45)
+  const cultura = new Dependecia(empleados = 31)
+  var cachito = new Corsa(color = "Rojo")
+  method initialize(){
+        deportes.agregarAFlota(cachito)
+        deportes.agregarAFlota(new Corsa(color = "Azul"))
+        deportes.agregarAFlota(new Corsa(color = "verde"))
+        deportes.agregarAFlota(new Kwid(tanqueAdicional = true ))
+        deportes.agregarAFlota(new Especiales( capacidad = 5, velocidadMaxima = 160, peso = 1200, color = "beige"))
+        cultura.agregarAFlota(cachito)
+        cultura.agregarAFlota(new Kwid(tanqueAdicional = false ))
+        cultura.agregarAFlota(new Kwid(tanqueAdicional = true ))
+        cultura.agregarAFlota(new Kwid(tanqueAdicional = true ))
+        cultura.agregarAFlota(trafic)
+        trafic.interior(popular)
+        trafic.motor(bataton)
   }
+  test "deportes tests" {
+    assert.equals(25,deportes.capacidadFaltante())
+    assert.equals(6450,deportes.pesoTotalFlota())
+    assert.equals(7,deportes.capacidadTotalEnColor("Azul"))
+    assert.that(deportes.colorDelRodadoMasRapido() == "beige")
+    assert.that(deportes.esGrande())
+  }
+
+  test "cultura Tests" {
+    assert.equals(10,cultura.capacidadTotalEnColor("Azul"))
+    assert.equals(10700,cultura.pesoTotalFlota())
+    assert.equals(5,cultura.capacidadFaltante())
+    assert.that(cultura.colorDelRodadoMasRapido() == "Rojo")
+    assert.notThat(cultura.esGrande())
+  }
+
+
 
 }
